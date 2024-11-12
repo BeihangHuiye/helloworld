@@ -17,7 +17,32 @@ void swap02(int* p1, int* p2)
     *p2 = temp;
 }
 
-int main()
+// 冒泡排序函数
+void bubbleSort(int* arr, int len)
+{
+    for (int i = 0; i < len - 1; i++)
+    {
+        for (int j = 0; j < len - 1 - i; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+        // 查看排序结果
+        cout << "第" << i + 1 << "轮排序结果为：";
+        for (int k = 0; k < len; k++)
+        {
+            cout << arr[k] << " ";
+        }
+        cout << endl;
+    }
+}
+
+
+int main07()
 {
 
     // 1、定义一个指针
@@ -122,10 +147,18 @@ int main()
     // 总结：如果不想修改实参的值，可以使用值传递，如果想修改实参的值，可以使用地址传递
     
     // 8、指针、数组、函数综合案例
-
-
-
-
+    // 作用：利用指针、数组、函数，实现对数组进行排序
+    // (1) 创建数组
+    int arr8[10] = {4,3,6,9,1,2,10,8,7,5};
+    // (2) 创建函数，利用冒泡排序，对数组进行排序
+    bubbleSort(arr8, 10);
+    // (3) 遍历数组
+    cout << "排序后的数组为：" << endl;
+    for(int i = 0; i < 10; i++)
+    {
+        cout << arr8[i] << " ";
+    }
+    cout << endl;
     system("pause");
     return 0;
 

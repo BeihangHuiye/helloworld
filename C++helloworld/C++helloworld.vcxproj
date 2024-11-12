@@ -134,6 +134,7 @@
     <ClCompile Include="数据类型及运算符.cpp" />
     <ClCompile Include="数组.cpp" />
     <ClCompile Include="程序流程结构.cpp" />
+    <ClCompile Include="结构体.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="myswap.h" />
