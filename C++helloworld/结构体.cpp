@@ -11,6 +11,14 @@ struct Student
     double score;
     };
 
+// 前面定义了一个Student结构体，这里再定义一个结构体
+struct Teacher
+{
+    string name;  // 老师的姓名
+    int id;       // 老师的工号
+    struct Student stu;  // 老师所教的学生，注意，这里要先定义Student
+};
+
 /*
 
 // 2、创建学生结构体变量
@@ -110,6 +118,23 @@ int main()
     cout << endl;
     cout << "结构体指针" << endl;
     cout << "姓名：" << p->name << " 年龄：" << p->age << " 分数：" << p->score << endl;
+
+    // 5、结构体嵌套
+    // 作用：一个结构体中可以包含另一个结构体
+    // 语法：struct 结构体名{成员列表}; struct 结构体名{成员列表};
+    // 定义了一个结构体Teacher，其中包含了一个结构体Student
+    struct Teacher t1;
+    t1.id = 1001;
+    t1.name = "王老师";
+    t1.stu.name = "张三";
+    t1.stu.age = 18;
+    t1.stu.score = 98.5;
+    cout << endl;
+    cout << "结构体嵌套" << endl;
+    cout << "姓名：" << t1.name << " 工号：" << t1.id << " 学生姓名：" << t1.stu.name << " 学生年龄：" << t1.stu.age << " 学生分数：" << t1.stu.score << endl;
+
+
+
 
 
 
