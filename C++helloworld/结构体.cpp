@@ -53,7 +53,29 @@ struct Student32
 }s32 = { "李六", 21, 92.5 };
 
 
-int main()
+// 结构体做函数参数
+// （1）值传递
+void printStudent_value(struct Student s)
+{
+    cout << "结构体做函数参数，值传递"<< endl;
+    cout << "姓名：" << s.name << " 年龄：" << s.age << " 分数：" << s.score << endl;
+}
+// （2）地址传递
+void printStudent_address(struct Student* s)
+{
+    cout << "结构体做函数参数，地址传递" << endl;
+    cout << "姓名：" << s->name << " 年龄：" << s->age << " 分数：" << s->score << endl;
+}
+
+// 结构体const的使用
+void printStudent_const(const struct Student* s)
+{
+    // s->name = "张三";  // 错误，const修饰的指针指向的值不能修改
+    cout << "姓名：" << s->name << " 年龄：" << s->age << " 分数：" << s->score << endl;
+}
+
+
+int main08()
 {
 	// 结构体
 	// 结构体是一种由不同类型的数据组成的数据集合，可以看作是一种自定义的数据类型
@@ -133,11 +155,23 @@ int main()
     cout << "结构体嵌套" << endl;
     cout << "姓名：" << t1.name << " 工号：" << t1.id << " 学生姓名：" << t1.stu.name << " 学生年龄：" << t1.stu.age << " 学生分数：" << t1.stu.score << endl;
 
+    // 6、结构体做函数参数
+    // 作用：将结构体作为参数传入函数中
+    // 语法：void 函数名(结构体名 变量名){}
+    cout << endl;
+    cout << "结构体做函数参数:" << endl;
+    struct Student s5 = {"张三", 18, 98.5};
+    // 值传递
+    printStudent_value(s5);
+    // 地址传递
+    printStudent_address(&s5);
 
 
-
-
-
+    // 7、结构体中const使用场景
+    // 作用：用const来防止结构体被修改
+    // void printStudent_const(const struct Student* s)
+    struct Student s6 = {"张三", 18, 98.5};
+    printStudent_const(&s6);
 
 	system("pause");
     return 0;
